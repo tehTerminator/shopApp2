@@ -1,0 +1,59 @@
+<div class="ui two column grid">
+    <div class="twelve wide column">
+        <div class="ui segment">
+            <h1 class="ui dividing header">
+                <i class="laptop icon"></i>
+                <div class="content">
+                    Maharaja Computers
+                    <div class="sub header">
+                        Authorised MPOnline Kiosk Center, CSC Center.
+                    </div>
+                </div>
+            </h1>
+            <div class="content">
+                <p>
+                    Welcome to Shop Management Application, a complete solution for <span class="ui red text">Accounting, Management, Reports and Statistics</span>.
+                </p>
+    
+                <div class="ui center aligned small images">
+                    <img src="assets/Login_Img1.jpg" alt="">
+                    <img src="assets/Login_Img2.jpg" alt="">
+                    <img src="assets/Login_Img3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="four wide column">
+        <h3 class="ui top attached inverted header">
+            <i class="users icon"></i>
+            User Login
+        </h3>
+        <form class="ui bottom attached form segment" [formGroup]="loginForm" [ngClass]="loginForm.valid ? '' : 'error'">
+            <div class="required field">
+                <label for="username">Username</label>
+                <input type="text" name="username" formControlName="username">
+            </div>
+
+            <div class="required field">
+                <label for="password">Password</label>
+                <input type="password" name="password" formControlName="password">
+            </div>
+
+            <div class="ui error message" *ngIf="!loginForm.valid && loginForm.touched">
+                <ul>
+                    <li *ngIf="usernameField.invalid && usernameField.touched">Username is empty.</li>
+                    <li *ngIf="passwordField.invalid && passwordField.touched">Password is empty.</li>
+                </ul>
+            </div>
+
+            <p *ngIf="invalidCredentials">
+                <span class="ui red text">Invalid Username or Password.</span>
+            </p>
+
+            <div class="ui two fluid buttons">
+                <button class="ui green button" [disabled]="!loginForm.valid || disableSubmit" (click)="onLogin()">Submit</button>
+                <button class="ui red button" (click)="onReset()">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

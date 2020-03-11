@@ -1,0 +1,40 @@
+<nav class="ui inverted bottom attached menu fixed-top">
+    <a class="icon item" (click)="onTogglePanel()">
+        <i class="calculator icon"></i>
+    </a>
+    <div class="header item">
+        {{ title }}
+    </div>
+    <a routerLink="home-page" routerLinkActive="active red" class="item">
+        <i class="home icon"></i>
+        Home</a>
+    <a class="item">
+        <i class="cogs icon"></i>
+        Task</a>
+    <a href="#" class="item">
+        <i class="cash register icon"></i>
+        Cash Book</a>
+    <a href="#" class="item">
+        <i class="print icon"></i>
+        Report
+    </a>
+    <a routerLinkActive="active red" class="ui dropdown item">
+        <i class="hammer icon"></i>
+        Admin
+        <div class="ui inverted menu">
+            <div [routerLink]="['admin-page', 'rawMaterial']" class="item">Raw Material</div>
+            <div [routerLink]="['admin-page', 'products']" class="item">Products</div>
+            <div [routerLink]="['admin-page', 'ledger']" class="item">Ledger</div>
+            <div class="item">Batch</div>
+            <div class="item">User</div>
+        </div>
+    </a>
+    
+    <div class="right menu">
+        <div class="item" routerLink="login-page" routerLinkActive="active red"> 
+            <i class="lock icon"></i>
+            {{ authService.activeUser.title }}
+        </div>
+    </div>
+    
+</nav>

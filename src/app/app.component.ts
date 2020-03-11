@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ShopAppBeta';
+
+  panelVisible = true;
+
+  onToggle($event: boolean) {
+    console.log('Event Captured', $event);
+    this.panelVisible = $event;
+  }
+
+  getWidth() {
+    const width = this.panelVisible ? 'ten wide column' : 'thirteen wide column';
+    return width;
+  }
 }

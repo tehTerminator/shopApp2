@@ -1,0 +1,48 @@
+<div class="ui two divided column grid">
+    <div class="four wide column">
+        <div class="ui form basic segment" [formGroup]="theForm">
+            <div class="ui header">
+                Create / Update Raw Material
+            </div>
+            <div class="field">
+                <label for="id">#</label>
+                <input type="number" name="id" min="0" step="1" formControlName="id" (change)="onIdChange()">
+            </div>
+            <div class="required field">
+                <label for="title">Title</label>
+                <input type="text" name="title" formControlName="title">
+            </div>
+            <div class="field">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="id" min="0" step="1" formControlName="quantity">
+            </div>
+            <button class="ui green button" (click)="onSubmit()" [disabled]="theForm.touched && !theForm.valid">
+                Submit
+            </button>
+            <button class="ui red button" (click)="onReset()">
+                Reset
+            </button>
+        </div>
+    </div>
+    <div class="twelve wide column">
+        <div class="ui basic segment">
+            <div class="ui header">
+                List of Raw Material
+            </div>
+            <div class="ui fluid input">
+                <input type="text" name="search" prompt="Search" [(ngModel)]="searchText">
+            </div>
+            <hr>
+            <a 
+                class="ui big blue label mb-1" 
+                *ngFor="let material of rawMaterial | search:'title':searchText"
+                (click)="id=material.id;onIdChange()">
+                    [{{ material.id }}]
+                    {{ material.title }}
+                <div class="detail">
+                    Qty - {{ material.quantity }}
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

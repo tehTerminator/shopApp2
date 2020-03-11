@@ -1,0 +1,26 @@
+<div class="ui one column grid">
+    <div class="column">
+        <div class="ui top attached tabular menu">
+            <a routerLink="rawMaterial" routerLinkActive="active" class="item">
+                <i class="layer group icon"></i>
+                Raw Material
+            </a>
+            <a routerLink="products" routerLinkActive="active" class="item">
+                <i class="layer group icon"></i>
+                Products
+            </a>
+            <a routerLink="ledger" routerLinkActive="active" class="item">
+                <i class="layer group icon"></i>
+                Ledger
+            </a>
+            <a class="item">
+                <i class="layer group icon"></i>
+                Batch
+            </a>
+            <a class="item"><i class="user icon"></i>Users</a>
+        </div>
+        <div class="ui bottom attached segment">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
