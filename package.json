@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@popperjs/core": "^2.0.5",
     "fomantic-ui-css": "^2.8.3",
+    "ngx-mask": "^8.1.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
