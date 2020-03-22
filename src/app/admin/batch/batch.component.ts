@@ -10,7 +10,6 @@ import { Validators } from '@angular/forms';
 export class BatchComponent implements OnInit {
 
   constructor() {
-    
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component, Injector } from '@angular/core';
 import { BaseFormComponent } from '../../../sharing/base-form/base-form.component';
 import { Validators } from '@angular/forms';
 import { SqlRequest } from '../../../interface/sql-request';
+import { ValidateJSON } from './validate-json';
 
 @Component({
   selector: 'app-batch-form',
@@ -16,7 +17,7 @@ export class BatchFormComponent extends BaseFormComponent {
       id: [0, Validators.min(0)],
       title: ['', [Validators.required, Validators.minLength(3)]],
       rate: [0, [Validators.required, Validators.min(0)]],
-      info: ['', [Validators.required, Validators.min(2)]]
+      info: ['{}', [Validators.required, Validators.min(2), ValidateJSON]]
     });
   }
 
@@ -52,5 +53,9 @@ export class BatchFormComponent extends BaseFormComponent {
 
   set info(theInfo: string) {
     this.myForm.get('info').setValue(theInfo);
+  }
+
+  get infoField() {
+    return this.myForm.get('info');
   }
 }

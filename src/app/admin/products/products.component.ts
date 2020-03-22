@@ -42,9 +42,12 @@ export class ProductsComponent extends BaseFormComponent {
         rate: this.rate
       }
     };
+    console.log(this.id);
     if (this.id > 0) {
+      console.log('Trying to Update');
       this.update('products', request);
     } else {
+      console.log('Trying to Insert');
       this.insert('products', request);
     }
   }

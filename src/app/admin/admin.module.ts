@@ -10,6 +10,8 @@ import { LedgerFormComponent } from './ledger/ledger-form/ledger-form.component'
 import { BatchComponent } from './batch/batch.component';
 import { ProductsComponent } from './products/products.component';
 import { BatchFormComponent } from './batch/batch-form/batch-form.component';
+import { SearchComponent } from './batch/search/search.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { BatchFormComponent } from './batch/batch-form/batch-form.component';
     LedgerFormComponent,
     BatchComponent,
     ProductsComponent,
-    BatchFormComponent],
+    BatchFormComponent,
+    SearchComponent,
+    CategoryComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

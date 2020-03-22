@@ -10,9 +10,9 @@ export class LedgerComponent implements OnInit {
   ledgerTableRequest: SqlRequest;
   constructor() {
     this.ledgerTableRequest = {
-      columns: ['ledger.id as id', 'ledger.title as title', 'groups.title as groupTitle'],
+      columns: ['ledger.id as id', 'ledger.title as title', 'groups.title as group_title'],
       join: 'groups on groups.id = ledger.group_id',
-      orderBy: 'groupTitle ASC'
+      orderBy: 'group_title ASC'
     };
   }
 

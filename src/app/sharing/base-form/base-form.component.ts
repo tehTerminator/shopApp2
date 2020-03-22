@@ -27,7 +27,7 @@ export class BaseFormComponent {
     .subscribe(() => {
       this.ns.changeMessage({
         id: this.id,
-        title: 'Update Successfull',
+        title: 'Update Success',
         content: `${tableName.toUpperCase()} - ${this.title} updated successfully`
       });
       this.myForm.reset();

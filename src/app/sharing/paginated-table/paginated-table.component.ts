@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SqlService } from '../../services/sql.service';
 import { SqlRequest } from '../../interface/sql-request';
+import { SqlResponse } from '../../interface/sql-response';
 
 @Component({
   selector: 'app-paginated-table',
@@ -28,7 +29,7 @@ export class PaginatedTableComponent implements OnInit {
   constructor(private sql: SqlService) { }
 
   ngOnInit() {
-    if (this.tableData === undefined ){
+    if (this.tableData === undefined ) {
       this.fetchFromServer();
     } else {
       this.listOfItems = this.tableData;
@@ -46,10 +47,17 @@ export class PaginatedTableComponent implements OnInit {
     if (this.sqlRequest !== undefined) {
       request = this.sqlRequest;
     }
-    this.sql.select(this.tableName, request)
-    .subscribe((res: Array<any>) => {
-      this.listOfItems = res;
-      this.paginate();
+    // this.sql.select(this.tableName, request)
+    // .subscribe((res: Array<any>) => {
+    //   this.listOfItems = res;
+    //   this.paginate();
+    // });
+    this.sql.select(this.tableName, request, true)
+    .subscribe((res: SqlResponse) => {
+      this.listOfItems = res.rows;
+      if (this.listOfItems.length > 0 ){
+        this.paginate();
+      }
     });
   }
 
@@ -98,6 +106,10 @@ export class PaginatedTableComponent implements OnInit {
 
   last() {
     this.activePage = Math.max(...this.pageArray);
+  }
+
+  isEmpty(): boolean {
+    return this.listOfItems.length === 0;
   }
 
   /**
