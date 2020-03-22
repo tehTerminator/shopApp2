@@ -1,0 +1,27 @@
+<div class="ui basic form segment" [formGroup]="myForm">
+    <div class="ui header">
+        <i class="folder open outline icon"></i>Account Groups
+    </div>
+    <div class="field">
+        <label for="id">#</label>
+        <input type="number" formControlName="id" min="0" (change)="fetchGroup()">
+    </div>
+    <div class="required field">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title">
+    </div>
+    <div class="required field">
+        <label for="childOf">Child Of</label>
+        <select formControlName="childOf">
+            <option value="0">Parent Group Name</option>
+            <option [value]="group.id" *ngFor="let group of groups">
+                {{ group.title }}
+            </option>
+        </select>
+    </div>
+    <button 
+    [disabled]="myForm.touched && !myForm.valid"
+    class="ui green button" 
+    (click)="onSubmit()">Submit</button>
+    <button class="ui red button" (click)="onReset()">Reset</button>
+</div>

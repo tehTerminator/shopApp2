@@ -1,0 +1,115 @@
+<button class="ui fluid button" (click)="fetchFromServer()" *ngIf="smallSize">Refresh</button>
+<div class="ui top attached secondary menu">
+    <button class="icon item" (click)="fetchFromServer()" *ngIf="!smallSize">
+        <i class="circular red refresh icon"></i>
+    </button>
+    <div class="item" *ngIf="!smallSize">
+        <div class="ui left labeled input">
+            <div class="ui label">
+                Page Size
+            </div>
+            <select class="ui dropdown" [(ngModel)]="pageLength" (change)="paginate()">
+                <option *ngFor="let i of [5, 10, 15, 20, 25, 50, 100]">{{ i }}</option>
+            </select>
+        </div>
+    </div>
+    <button class="item" (click)="first()" [disabled]="isFirst()" *ngIf="!smallSize">
+        <i class="fast backward icon"></i>
+        <span *ngIf="!smallSize">First Page</span>
+    </button>
+    <button class="item" (click)="prev()" [disabled]="isFirst()">
+        <i class="backward icon"></i>
+        <span *ngIf="!smallSize">Previous Page</span>
+    </button>
+    <div class="item">
+    
+        <div class="ui left labeled input">
+            <div class="ui label">
+                Goto Page
+            </div>
+            <select class="ui dropdown" [(ngModel)]="activePage">
+                <option *ngFor="let page of pageArray">{{ page }}</option>
+            </select>
+        </div>
+    </div>
+    <button class="item" (click)="next()" [disabled]="isLast()">
+        <i class="forward icon"></i>
+        <span *ngIf="!smallSize">Next Page</span>
+    </button>
+    <button class="item" (click)="last()" [disabled]="isLast()" *ngIf="!smallSize">
+        <i class="fast forward icon"></i>
+        Last Page
+    </button>
+    <div class="right item" *ngIf="!smallSize">
+        <div class="ui transparent icon input">
+            <input type="text" [(ngModel)]="searchText" placeholder="Search...">
+            <i class="search icon"></i>
+        </div>
+    </div>
+</div>
+<!-- Table Starts Here -->
+<table class="ui celled compact attached table segment">
+    <thead>
+        <tr>
+            <th *ngFor="let h of headers">
+                {{ h | uppercase }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items|search:headers.join(','):searchText">
+            <td *ngFor="let header of headers">
+                {{ item[header] }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- Table Ends Here -->
+<div class="ui bottom attached secondary menu">
+    <button class="icon item" (click)="fetchFromServer()" *ngIf="!smallSize">
+        <i class="circular red refresh icon"></i>
+    </button>
+    <div class="item" *ngIf="!smallSize">
+        <div class="ui left labeled input">
+            <div class="ui label">
+                Page Size
+            </div>
+            <select class="ui dropdown" [(ngModel)]="pageLength" (change)="paginate()">
+                <option *ngFor="let i of [5, 10, 15, 20, 25, 50, 100]">{{ i }}</option>
+            </select>
+        </div>
+    </div>
+    <button class="item" (click)="first()" [disabled]="isFirst()" *ngIf="!smallSize">
+        <i class="fast backward icon"></i>
+        <span *ngIf="!smallSize">First Page</span>
+    </button>
+    <button class="item" (click)="prev()" [disabled]="isFirst()">
+        <i class="backward icon"></i>
+        <span *ngIf="!smallSize">Previous Page</span>
+    </button>
+    <div class="item">
+    
+        <div class="ui left labeled input">
+            <div class="ui label">
+                Goto Page
+            </div>
+            <select class="ui dropdown" [(ngModel)]="activePage">
+                <option *ngFor="let page of pageArray">{{ page }}</option>
+            </select>
+        </div>
+    </div>
+    <button class="item" (click)="next()" [disabled]="isLast()">
+        <i class="forward icon"></i>
+        <span *ngIf="!smallSize">Next Page</span>
+    </button>
+    <button class="item" (click)="last()" [disabled]="isLast()" *ngIf="!smallSize">
+        <i class="fast forward icon"></i>
+        Last Page
+    </button>
+    <div class="right item" *ngIf="!smallSize">
+        <div class="ui transparent icon input">
+            <input type="text" [(ngModel)]="searchText" placeholder="Search...">
+            <i class="search icon"></i>
+        </div>
+    </div>
+</div>

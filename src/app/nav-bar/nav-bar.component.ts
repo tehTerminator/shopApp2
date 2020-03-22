@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
 
   onTogglePanel() {
     this.panelVisible = !this.panelVisible;
-    console.log('Event Emitted', this.panelVisible)
+    console.log('Event Emitted', this.panelVisible);
     this.eventEmitter.emit(this.panelVisible);
   }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RawMaterialFormComponent } from './raw-material-form.component';
+import { BatchComponent } from './batch.component';
 
-describe('RawMaterialFormComponent', () => {
-  let component: RawMaterialFormComponent;
-  let fixture: ComponentFixture<RawMaterialFormComponent>;
+describe('BatchComponent', () => {
+  let component: BatchComponent;
+  let fixture: ComponentFixture<BatchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RawMaterialFormComponent ]
+      declarations: [ BatchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RawMaterialFormComponent);
+    fixture = TestBed.createComponent(BatchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { ProductFormComponent } from './product-form/product-form.component';
-import { RawMaterialFormComponent } from './raw-material-form/raw-material-form.component';
-import { LedgerFormComponent } from './ledger-form/ledger-form.component';
-import { ApplicationPipesModule } from '../application-pipes/application-pipes.module';
+import { LedgerComponent } from './ledger/ledger.component';
+import { SharingModule } from '../sharing/sharing.module';
+import { GroupsFormComponent } from './ledger/groups-form/groups-form.component';
+import { LedgerFormComponent } from './ledger/ledger-form/ledger-form.component';
+import { BatchComponent } from './batch/batch.component';
 import { ProductsComponent } from './products/products.component';
-import { ConsumptionComponent } from './consumption/consumption.component';
+import { BatchFormComponent } from './batch/batch-form/batch-form.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    ProductFormComponent,
-    RawMaterialFormComponent,
+    LedgerComponent,
+    GroupsFormComponent,
     LedgerFormComponent,
+    BatchComponent,
     ProductsComponent,
-    ConsumptionComponent],
+    BatchFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    ApplicationPipesModule
+    SharingModule
   ],
 })
 export class AdminModule { }
