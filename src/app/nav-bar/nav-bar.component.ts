@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class NavBarComponent implements OnInit {
   @Output() eventEmitter = new EventEmitter<boolean>();
   title = 'Maharaja Computers';
-  panelVisible = true;
+  panelVisible = false;
 
   constructor(public authService: AuthService) { }
 

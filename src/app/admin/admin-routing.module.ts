@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProductsComponent } from './products/products.component';
 import { LedgerComponent } from './ledger/ledger.component';
+import { CategoryComponent } from './category/category.component';
 import { BatchComponent } from './batch/batch.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'products', component: ProductsComponent },
       { path: 'ledger', component: LedgerComponent },
+      { path: 'category', component: CategoryComponent },
       { path: 'batch', component: BatchComponent }
     ]
   }

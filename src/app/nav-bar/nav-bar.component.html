@@ -22,10 +22,11 @@
         <i class="hammer icon"></i>
         Admin
         <div class="ui inverted menu">
-            <div [routerLink]="['admin-page', 'products']" class="item">Products</div>
-            <div [routerLink]="['admin-page', 'ledger']" class="item">Ledger</div>
-            <div [routerLink]="['admin-page', 'batch']" class="item">Batch</div>
-            <div class="item">User</div>
+            <a [routerLink]="['admin-page', 'products']" class="item">Products</a>
+            <a [routerLink]="['admin-page', 'ledger']" class="item">Ledger</a>
+            <a [routerLink]="['admin-page', 'category']" class="item">Category</a>
+            <a [routerLink]="['admin-page', 'batch']" class="item">Batch</a>
+            <a class="item">User</a>
         </div>
     </a>
     

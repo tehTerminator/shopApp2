@@ -30,9 +30,9 @@ export class BatchFormComponent extends BaseFormComponent {
       }
     };
     if (this.id > 0) {
-      this.update('batch', request);
+      this.update('template', request);
     } else {
-      this.insert('batch', request);
+      this.insert('template', request);
     }
   }
 
