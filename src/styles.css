@@ -3,6 +3,10 @@ html {
   height: 100%;
 }
 
+mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
 body {
   padding-top: 60px !important;
 }
