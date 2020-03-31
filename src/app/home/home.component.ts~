@@ -30,15 +30,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
-    onReceivingCustomer($event: Customer) {
-        /*
+  onReceivingCustomer($event: Customer) {
     this.bill.customer = $event;
     if ( this.myTemp.isRateFixed() ) {
       this.tab = 4;
     } else {
       this.tab = 3;
     }
-         */
   }
 
   onSubmit() {

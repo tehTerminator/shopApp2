@@ -3,6 +3,8 @@ import { BaseFormComponent } from '../../../sharing/base-form/base-form.componen
 import { Validators } from '@angular/forms';
 import { SqlRequest } from '../../../interface/sql-request';
 import { ValidateJSON } from './validate-json';
+import { Template } from './../../../class/template';
+import { SqlResponse } from '../../../interface/sql-response';
 
 @Component({
   selector: 'app-batch-form',
@@ -17,7 +19,6 @@ export class BatchFormComponent extends BaseFormComponent {
       id: [0, Validators.min(0)],
       title: ['', [Validators.required, Validators.minLength(3)]],
       rate: [0, [Validators.required, Validators.min(0)]],
-      info: ['{}', [Validators.required, Validators.min(2), ValidateJSON]]
     });
   }
 
@@ -26,7 +27,6 @@ export class BatchFormComponent extends BaseFormComponent {
       userData: {
         title: this.title,
         rate: this.rate,
-        info: this.info
       }
     };
     if (this.id > 0) {
@@ -34,6 +34,21 @@ export class BatchFormComponent extends BaseFormComponent {
     } else {
       this.insert('template', request);
     }
+  }
+
+  fetchTemplate() {
+    this.sq.select('template', {andWhere: {id: this.id}}, true)
+    .subscribe((res: SqlResponse) => {
+      console.log(res);
+      if (res.rows.length === 1) {
+        const tmp = res.rows[0];
+        this.title = tmp.title;
+        this.rate = tmp.rate;
+        this.info = tmp.info;
+      } else {
+        this.onReset();
+      }
+    });
   }
 
   /**

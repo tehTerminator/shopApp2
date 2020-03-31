@@ -1,5 +1,5 @@
 <nav class="ui inverted bottom attached menu fixed-top">
-    <a class="icon item" (click)="onTogglePanel()">
+    <a class="icon item" (click)="onTogglePanel()" [ngClass]="panelVisible ? 'active red' : ''">
         <i class="calculator icon"></i>
     </a>
     <div class="header item">
@@ -11,9 +11,16 @@
     <a class="item">
         <i class="cogs icon"></i>
         Task</a>
-    <a href="#" class="item">
+    <a class="ui dropdown item">
         <i class="cash register icon"></i>
-        Cash Book</a>
+        Cash Book
+        <div class="ui menu">
+            <div class="item" (click)="onToggleVoucherPane()">Create Voucher</div>
+            <a class="item"> Account Statement</a>
+            <a class="item"> Day Book</a>
+            <a class="item"> Update Opening Balance</a>
+        </div>
+    </a>
     <a href="#" class="item">
         <i class="print icon"></i>
         Report

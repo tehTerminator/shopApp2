@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SqlRequest } from '../interface/sql-request';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -45,3 +44,24 @@ export class SqlService {
     return this.createRequest('delete', theTable, request, verbose);
   }
 }
+
+export interface SqlRequest {
+  columns?: Array<string>;
+  andWhere?: any;
+  orWhere?: any;
+  orderBy?: string;
+  limit?: string;
+  join?: string;
+  leftJoin?: string;
+  rightJoin?: string;
+  userData?: any;
+}
+
+export interface SqlResponse {
+  rows: Array<any>;
+  query: string;
+  rowCount: number;
+  lastInsertId: number;
+}
+
+

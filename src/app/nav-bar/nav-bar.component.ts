@@ -7,7 +7,9 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  @Output() eventEmitter = new EventEmitter<boolean>();
+  @Output() calculatorPanel = new EventEmitter<boolean>();
+  @Output() voucherPanel = new EventEmitter<number>();
+
   title = 'Maharaja Computers';
   panelVisible = false;
 
@@ -18,8 +20,12 @@ export class NavBarComponent implements OnInit {
 
   onTogglePanel() {
     this.panelVisible = !this.panelVisible;
-    console.log('Event Emitted', this.panelVisible);
-    this.eventEmitter.emit(this.panelVisible);
+    this.calculatorPanel.emit(this.panelVisible);
+  }
+
+  onToggleVoucherPane() {
+    this.voucherPanel.emit(0);
+    return;
   }
 
 }

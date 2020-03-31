@@ -12,6 +12,8 @@ import { ProductsComponent } from './products/products.component';
 import { BatchFormComponent } from './batch/batch-form/batch-form.component';
 import { SearchComponent } from './batch/search/search.component';
 import { CategoryComponent } from './category/category.component';
+import { TemplateProductsComponent } from './batch/template-products/template-products.component';
+import { TemplateInfoComponent } from './batch/template-info/template-info.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { CategoryComponent } from './category/category.component';
     ProductsComponent,
     BatchFormComponent,
     SearchComponent,
-    CategoryComponent],
+    CategoryComponent,
+    TemplateProductsComponent,
+    TemplateInfoComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

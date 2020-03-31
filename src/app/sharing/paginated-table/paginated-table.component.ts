@@ -46,6 +46,7 @@ export class PaginatedTableComponent implements OnInit {
     let request: SqlRequest = {};
     if (this.sqlRequest !== undefined) {
       request = this.sqlRequest;
+      console.log('Request is not Undefined', this.sqlRequest);
     }
     // this.sql.select(this.tableName, request)
     // .subscribe((res: Array<any>) => {
@@ -54,8 +55,9 @@ export class PaginatedTableComponent implements OnInit {
     // });
     this.sql.select(this.tableName, request, true)
     .subscribe((res: SqlResponse) => {
+      console.log(res);
       this.listOfItems = res.rows;
-      if (this.listOfItems.length > 0 ){
+      if (this.listOfItems.length > 0 ) {
         this.paginate();
       }
     });

@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { SqlRequest } from '../../services/sql.service';
+import { join } from 'path';
 
 @Component({
   selector: 'app-batch',

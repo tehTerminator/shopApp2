@@ -1,0 +1,4 @@
+.results.visible {
+    display: block !important;
+    visibility: visible;
+}

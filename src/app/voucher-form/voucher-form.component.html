@@ -1,0 +1,48 @@
+<div class="ui inverted blue basic form segment" [formGroup]="myForm">
+    <button class="right floated mini circular ui inverted red basic icon button" (click)="onClose()">
+      <i class="close icon"></i>
+    </button>
+    <h2 class="ui header">
+        Voucher Creation
+    </h2>
+  <div class="field">
+    <label for="id">ID</label>
+    <input type="number" formControlName="id" min="0" (change)="onIdChange()" />
+  </div>
+  <div class="field" [hidden]="id===0" [ngClass]="myForm.get('posted_on').invalid ? 'error' : ''">
+    <label for="posted_on">Posted On</label>
+    <input type="text" formControlName="posted_on" placeholder="YYYY-MM-DD hh:mm:ss"/>
+  </div>
+  <div class="field">
+    <label for="creditor_id">Giver</label>
+    <select name="creditor_id" formControlName="creditor_id">
+      <option *ngFor="let ledger of ledgers" [value]="ledger.id">
+        {{ ledger.title }}
+      </option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="debtor_id">Receiver</label>
+    <select name="debtor_id" formControlName="debtor_id">
+      <option *ngFor="let ledger of ledgers" [value]="ledger.id">
+        {{ ledger.title }}
+      </option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="amount">Amount</label>
+    <input type="number" formControlName="amount" />
+  </div>
+  <div class="field">
+    <label for="narration">Narration</label>
+    <textarea
+      name="narration"
+      cols="30"
+      rows="10"
+      formControlName="narration"
+    >
+  </textarea>
+  </div>
+  <button class="ui green button" (click)="onSubmit()" [disabled]="myForm.touched && !myForm.valid">Submit</button>
+  <button class="ui red button" (click)="onReset()">Reset</button>
+</div>

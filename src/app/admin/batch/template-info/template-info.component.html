@@ -1,0 +1,26 @@
+<form class="ui form segment" [formGroup]="myForm">
+    <div class="ui header">
+        Template Information
+    </div>
+    <div class="required field"><label for="templateId">Template</label>
+        <select name="templateId" formControlName="templateId" (change)="onTemplateIdChange()">
+        <option [value]="t.id" *ngFor="let t of templates">{{ t.title }}</option>
+    </select></div>
+    <div class="required field"><label for="categoryId">Category</label><select name="categoryId" formControlName="categoryId">
+        <option [value]="t.id" *ngFor="let t of categories">{{ t.title }}</option>
+    </select></div>
+    <div class="field"><label for="creditorId">Creditor</label><select name="creditorId" formControlName="creditorId">
+        <option [value]="t.id" *ngFor="let t of ledger">{{ t.title }}</option>
+    </select></div>
+    <div class="field">
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" formControlName="amount">
+    </div>
+
+    <button class="ui green button" (click)="onSubmit()">
+        Submit
+    </button>
+
+    <button class="ui red button" (click)="onReset()">Reset</button>
+
+</form>

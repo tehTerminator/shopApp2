@@ -1,14 +1,20 @@
 <div class="row">
-    <div class="ui two column grid">
-        <div class="ten wide column">
+    <div class="ui four column grid">
+        <div class="column">
             <app-batch-form></app-batch-form>
         </div>
-        <div class="six wide column">
+        <div class="column">
+            <app-template-products></app-template-products>
+        </div>
+        <div class="column">
+            <app-template-info></app-template-info>
+        </div>
+        <div class="column">
             <app-search></app-search>
         </div>
     </div>
 </div>
 <hr>
 <div class="row">
-    <app-paginated-table tableName="template"></app-paginated-table>
+    <app-paginated-table tableName="template" [sqlRequest]="request"></app-paginated-table>
 </div>

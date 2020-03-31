@@ -1,64 +1,52 @@
 import { Voucher } from '../interface/voucher';
 
 export class Template {
-    private myId: number;
-    private myTitle: string;
-    private myRate: number;
-    private mySettings: {
-        products: Array<{product_id: number, quantity: number}>,
-        vouchers: Array<Voucher>,
-        category_id: number
-    };
+    id: number;
+    title: string;
+    rate: number;
+    products: Array<{product_id: number, quantity: number}>;
+    creditorId: number;
+    creditor: string;
+    amount: number;
+    categoryId: number;
 
-    constructor(id: number, title: string, rate: number, settings: any) {
+
+    constructor(
+        id: number,
+        title: string,
+        rate: number,
+        creditorId?: number,
+        creditor?: string,
+        amount?: number,
+        categoryId?: number
+    ) {
         this.id = id;
         this.title = title;
         this.rate = rate;
-        this.settings = settings;
+        this.creditorId = creditorId === undefined ? 0 : creditorId;
+        this.creditor = creditor === undefined ? '' : creditor;
+        this.amount = amount === undefined ? 0 : amount;
+        this.categoryId = categoryId === undefined ? 0 : categoryId;
+    }
+
+    addProduct(product: any) {
+        this.products.push(product);
+    }
+
+    isProduct() {
+        return this.categoryId === 0;
+    }
+
+    isTask() {
+        return !this.isProduct();
+    }
+
+    isFixedRate(): boolean {
+        return this.isTask() && this.rate >= 0;
     }
 
     /** *******************************
      * Getters and Setters
      * ********************************
      */
-
-    get id(): number {
-        return this.myId;
-    }
-
-    set id(id: number) {
-        id > 0 ? this.myId = id : this.myId = 0;
-    }
-
-    get title(): string {
-        return this.myTitle;
-    }
-
-    set title(theTitle: string) {
-        this.title = theTitle;
-    }
-
-    set settings(data: any) {
-        this.mySettings = JSON.parse(data);
-    }
-
-    get rate(): number {
-        return this.myRate;
-    }
-
-    set rate(theRate: number) {
-        this.myRate = theRate;
-    }
-
-    get categoryId(): number {
-        return this.mySettings.category_id;
-    }
-
-    get vouchers(): Array<any> {
-        return this.mySettings.vouchers;
-    }
-
-    get products(): Array<any> {
-        return this.mySettings.products;
-    }
 }

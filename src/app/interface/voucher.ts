@@ -3,7 +3,7 @@ export interface Voucher {
     against_id?: number;
     creditor_id: number;
     creditor?: string;
-    debtor_id: number;
+    debtor_id?: number;
     debtor?: string;
     posted_on?: string;
     amount: number;

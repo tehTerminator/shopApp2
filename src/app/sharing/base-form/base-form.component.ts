@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { SqlService } from '../../services/sql.service';
 import { SqlRequest } from '../../interface/sql-request';
 import { SqlResponse } from '../../interface/sql-response';
+import { Message } from '../../interface/message';
 
 @Component({
   selector: 'app-base-form',
@@ -21,27 +22,37 @@ export class BaseFormComponent {
     this.ns = injector.get(NotificationService);
   }
 
-  protected update(tableName: string, request: SqlRequest) {
+  protected update(tableName: string, request: SqlRequest, theMessage?: Message) {
     request.andWhere = {id: this.id};
     this.sq.update(tableName, request)
     .subscribe(() => {
-      this.ns.changeMessage({
+      let message: Message = {
         id: this.id,
         title: 'Update Success',
         content: `${tableName.toUpperCase()} - ${this.title} updated successfully`
-      });
+      };
+      if (theMessage !== undefined ) {
+        message = theMessage;
+      }
+      this.ns.changeMessage(message);
       this.myForm.reset();
     });
   }
 
-  protected insert(tableName: string, request: SqlRequest) {
+  protected insert(tableName: string, request: SqlRequest, theMessage?: Message) {
     this.sq.insert(tableName, request, true)
-    .subscribe(() => {
-      this.ns.changeMessage({
-        id: this.id,
-        title: 'Insert Success',
-        content: `${tableName.toUpperCase()} - ${this.title} inserted Successfully`
-      });
+    .subscribe((res: SqlResponse) => {
+      console.log(res);
+      let message: Message = {
+          id: res.lastInsertId,
+          title: 'Insert Success',
+          content: `${tableName.toUpperCase()} - ${this.title} inserted Successfully`
+      };
+      if (theMessage !== undefined ) {
+        message = theMessage;
+        message.id = res.lastInsertId;
+      }
+      this.ns.changeMessage(message);
       this.myForm.reset();
     });
   }
@@ -60,10 +71,18 @@ export class BaseFormComponent {
   }
 
   get title(): string {
-    return this.myForm.get('title').value;
+    try {
+      return this.myForm.get('title').value;
+    } catch (e) {
+      return '';
+    }
   }
 
   set title(theTitle: string) {
-    this.myForm.get('title').setValue(theTitle);
+    try {
+      this.myForm.get('title').setValue(theTitle);
+    } catch (e) {
+      console.log('Title Does not exist on this form');
+    }
   }
 }
