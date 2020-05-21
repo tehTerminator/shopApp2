@@ -1,0 +1,33 @@
+<div class="ui basic segment">
+        <h3 class="ui header">
+            <i class="ui calculator icon"></i>
+            Calculator App
+        </h3>
+        <hr>
+        <label for="expression">Expression</label>
+        <div class="ui fluid input">
+            <input type="text" max-length="50" name="textField" [(ngModel)]="textField" (blur)="evaluate()">
+        </div>
+        <hr>
+        <div class="ui fluid right labeled input" *ngFor="let de of denomination(); let i of index" style="margin-bottom: 5px;">
+            <label for="count" class="ui blue label">
+                <i class="rupee icon"></i> {{ de }}
+            </label>
+            <input 
+                type="number" 
+                name="count" 
+                [tabindex]="i"
+                min="0"
+                step="1"
+                [(ngModel)]="currencyCounter[de]">
+            <div class="ui basic label">{{ calcValue(de) | currency:'INR' }}</div>
+        </div>
+
+        <hr>
+
+        <h3 class="ui center aligned header">
+            Total : {{ getTotal() | currency:'INR'}}
+        </h3>
+    
+        <button class="ui red fluid button" (click)="onReset()">Reset</button>
+</div>

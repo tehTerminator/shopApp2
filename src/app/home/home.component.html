@@ -1,0 +1,96 @@
+
+<div class="ui two column grid">
+    <div class="four wide column">
+
+        <div [hidden]="tab !== 0">
+            <!-- Here We Select A Template  -->
+            <app-template-list (templateEmitter)="onReceivingTemplate($event)"></app-template-list>
+        </div>
+        <div [hidden]="tab!==1">
+            <!-- Here We ask customer Name -->
+            <!-- Skip this field is ProductOnly Template -->
+            <!-- ALso Ask Amount Paid by Customer if Contains Voucher -->
+            <app-customer (customerEmitter)="onReceivingCustomer($event)"></app-customer>
+        </div>
+        <div [hidden]="tab!==2" *ngIf="myTemp !== undefined">
+            <!-- Ask for Quantity and Price Paid By Customer -->
+            <!-- if template is product only -->
+            <div class="ui form segment">
+                <div class="ui header">
+                    {{ this.myTemp.title }}
+                </div>
+                <div class="field">
+                    <label for="quantity">Quantity</label>
+                    <input name="quantity" [(ngModel)]="quantity" min="0"
+                        (change)="amountPaid = quantity * myTemp.rate">
+                </div>
+                <div class="field">
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" [(ngModel)]="amountPaid">
+                </div>
+                <button class="ui blue fluid button" (click)="tab=4">Next</button>
+            </div>
+        </div>
+
+        <div [hidden]="tab!==3" *ngIf="myTemp !== undefined">
+            <div class="ui form segment">
+                <div class="field">
+                    <label for="amount">{{ myTemp.info.creditor }}</label>
+                    <div class="ui fluid input">
+                        <input type="number" [(ngModel)]="myTemp.info.amount">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="amount">Total Amount Paid</label>
+                    <input type="number" name="amount" [(ngModel)]="amountPaid">
+                </div>
+                <br>
+                <button class="ui blue fluid button" (click)="tab=4" [hidden]="amountPaid === 0">
+                    Next
+                </button>
+            </div>
+        </div>
+
+        <div [hidden]="tab!==4" *ngIf="myTemp !== undefined">
+            <!-- Here we see final preview of what is going to be posted -->
+            <table class="ui table segment">
+                <tr>
+                    <td>Customer Name</td>
+                    <td>{{ bill.customer.title }}</td>
+                </tr>
+                <tr *ngIf="myTemp.isProduct()">
+                    <td>
+                        {{ myTemp.title }} x {{ quantity }}
+                    </td>
+                    <td>
+                        {{ amountPaid }}
+                    </td>
+                </tr>
+                <tr *ngIf="myTemp.isTask()">
+                    <td>{{ myTemp.info.creditor }}</td>
+                    <td>{{ myTemp.info.amount }}</td>
+                </tr>
+                <tr>
+                    <td>Total Amount Paid</td>
+                    <td>{{ amountPaid }}</td>
+                </tr>
+            </table>
+            <button class="ui blue fluid button" (click)="onSubmit()">
+                Submit
+            </button>
+        </div>
+
+        <hr>
+    </div>
+    <div class="twelve wide column">
+        <h2 class="ui center aligned header">INVOICE</h2>
+        <span class="float-right">Date : 23-03-2020</span>
+        Bill For : <strong>{{ bill.customer.title }}</strong>
+        <br>
+        Address : <strong>{{ bill.customer.address }} </strong>
+        <hr>
+        <app-bill></app-bill>
+    </div>
+</div>
+

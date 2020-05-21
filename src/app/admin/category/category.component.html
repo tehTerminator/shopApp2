@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="ui form component" [formGroup]="myForm">
+        <div class="ui two column grid">
+            <div class="twelve wide column">
+                <div class="two fields">
+                    <div class="four wide field">
+                        <label for="id">#</label>
+                        <input type="number" name="id" formControlName="id">
+                    </div>
+                    <div class="twelve wide field">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" formControlName="title">
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <button class="ui fluid green button mb-1" (click)="onSubmit()">Submit</button>
+                <button class="ui fluid red button" (click)="onReset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <app-paginated-table tableName="category"></app-paginated-table>
+</div>

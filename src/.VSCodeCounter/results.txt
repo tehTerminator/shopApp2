@@ -1,0 +1,181 @@
+Date : 2020-03-23 22:13:10
+Directory : c:\projects\ShopAppBeta\src
+Total : 129 files,  2884 codes, 162 comments, 525 blanks, all 3571 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         86 |      2,073 |        146 |        465 |      2,684 |
+| HTML       |         21 |        712 |          9 |         27 |        748 |
+| CSS        |         22 |         99 |          7 |         33 |        139 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |        129 |      2,884 |        162 |        525 |      3,571 |
+| app                                                                                       |        121 |      2,791 |         86 |        492 |      3,369 |
+| app\admin                                                                                 |         36 |        727 |         14 |        119 |        860 |
+| app\admin\batch                                                                           |         12 |        209 |          3 |         39 |        251 |
+| app\admin\batch\batch-form                                                                |          4 |         89 |          3 |         12 |        104 |
+| app\admin\batch\search                                                                    |          4 |         72 |          0 |         15 |         87 |
+| app\admin\category                                                                        |          3 |         57 |          0 |          6 |         63 |
+| app\admin\ledger                                                                          |         12 |        265 |          8 |         49 |        322 |
+| app\admin\ledger\groups-form                                                              |          4 |        108 |          4 |         18 |        130 |
+| app\admin\ledger\ledger-form                                                              |          4 |        107 |          4 |         20 |        131 |
+| app\admin\products                                                                        |          3 |         83 |          3 |          8 |         94 |
+| app\calculator                                                                            |          4 |         94 |          1 |         20 |        115 |
+| app\class                                                                                 |          6 |        159 |         15 |         39 |        213 |
+| app\home                                                                                  |         19 |        430 |         12 |         74 |        516 |
+| app\home\bill                                                                             |          4 |         61 |          0 |         12 |         73 |
+| app\home\customer                                                                         |          4 |        111 |          2 |         15 |        128 |
+| app\home\template-list                                                                    |          4 |         69 |          0 |         13 |         82 |
+| app\interface                                                                             |         13 |        102 |          0 |         15 |        117 |
+| app\login                                                                                 |          6 |        130 |          2 |         30 |        162 |
+| app\nav-bar                                                                               |          4 |        116 |          1 |         20 |        137 |
+| app\notification                                                                          |          4 |         80 |          0 |         15 |         95 |
+| app\services                                                                              |          9 |        215 |         19 |         50 |        284 |
+| app\sharing                                                                               |         11 |        416 |         19 |         69 |        504 |
+| app\sharing\base-form                                                                     |          1 |         76 |          3 |         10 |         89 |
+| app\sharing\paginated-table                                                               |          4 |        261 |         16 |         39 |        316 |
+| app\voucher-form                                                                          |          3 |        207 |          3 |         22 |        232 |
+| environments                                                                              |          2 |          6 |         11 |          4 |         21 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                  | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\projects\ShopAppBeta\src\app\admin\admin-routing.module.ts                             | TypeScript |         24 |          0 |          4 |         28 |
+| c:\projects\ShopAppBeta\src\app\admin\admin.component.css                                 | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\admin.component.html                                | HTML       |         26 |          0 |          0 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\admin.component.spec.ts                             | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\admin.component.ts                                  | TypeScript |         10 |          0 |          3 |         13 |
+| c:\projects\ShopAppBeta\src\app\admin\admin.module.ts                                     | TypeScript |         33 |          0 |          3 |         36 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch-form\batch-form.component.css           | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch-form\batch-form.component.html          | HTML       |         29 |          0 |          0 |         29 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch-form\batch-form.component.ts            | TypeScript |         50 |          3 |          9 |         62 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch-form\validate-json.ts                   | TypeScript |         10 |          0 |          2 |         12 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch.component.css                           | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch.component.html                          | HTML       |         14 |          0 |          0 |         14 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch.component.spec.ts                       | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\batch.component.ts                            | TypeScript |         14 |          0 |          5 |         19 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\search\search.component.css                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\search\search.component.html                  | HTML       |         26 |          0 |          3 |         29 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\search\search.component.spec.ts               | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\batch\search\search.component.ts                    | TypeScript |         26 |          0 |          5 |         31 |
+| c:\projects\ShopAppBeta\src\app\admin\category\category.component.css                     | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\category\category.component.html                    | HTML       |         25 |          0 |          0 |         25 |
+| c:\projects\ShopAppBeta\src\app\admin\category\category.component.ts                      | TypeScript |         32 |          0 |          5 |         37 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\groups-form\groups-form.component.css        | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\groups-form\groups-form.component.html       | HTML       |         27 |          0 |          0 |         27 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\groups-form\groups-form.component.spec.ts    | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\groups-form\groups-form.component.ts         | TypeScript |         61 |          4 |         11 |         76 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger-form\ledger-form.component.css        | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger-form\ledger-form.component.html       | HTML       |         33 |          0 |          1 |         34 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger-form\ledger-form.component.spec.ts    | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger-form\ledger-form.component.ts         | TypeScript |         54 |          4 |         12 |         70 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger.component.css                         | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger.component.html                        | HTML       |         11 |          0 |          0 |         11 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger.component.spec.ts                     | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\admin\ledger\ledger.component.ts                          | TypeScript |         19 |          0 |          4 |         23 |
+| c:\projects\ShopAppBeta\src\app\admin\products\products.component.css                     | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\admin\products\products.component.html                    | HTML       |         22 |          0 |          0 |         22 |
+| c:\projects\ShopAppBeta\src\app\admin\products\products.component.ts                      | TypeScript |         61 |          3 |          7 |         71 |
+| c:\projects\ShopAppBeta\src\app\app-routing.module.ts                                     | TypeScript |         13 |          0 |          3 |         16 |
+| c:\projects\ShopAppBeta\src\app\app.component.css                                         | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\app.component.html                                        | HTML       |         22 |          0 |          1 |         23 |
+| c:\projects\ShopAppBeta\src\app\app.component.spec.ts                                     | TypeScript |         31 |          0 |          5 |         36 |
+| c:\projects\ShopAppBeta\src\app\app.component.ts                                          | TypeScript |         17 |          0 |          5 |         22 |
+| c:\projects\ShopAppBeta\src\app\app.module.ts                                             | TypeScript |         32 |          0 |          4 |         36 |
+| c:\projects\ShopAppBeta\src\app\calculator\calculator.component.css                       | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\calculator\calculator.component.html                      | HTML       |         30 |          0 |          3 |         33 |
+| c:\projects\ShopAppBeta\src\app\calculator\calculator.component.spec.ts                   | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\calculator\calculator.component.ts                        | TypeScript |         44 |          1 |         10 |         55 |
+| c:\projects\ShopAppBeta\src\app\class\bill.spec.ts                                        | TypeScript |          6 |          0 |          2 |          8 |
+| c:\projects\ShopAppBeta\src\app\class\bill.ts                                             | TypeScript |         33 |          2 |          8 |         43 |
+| c:\projects\ShopAppBeta\src\app\class\element.ts                                          | TypeScript |         19 |          9 |          3 |         31 |
+| c:\projects\ShopAppBeta\src\app\class\product.spec.ts                                     | TypeScript |          6 |          0 |          2 |          8 |
+| c:\projects\ShopAppBeta\src\app\class\product.ts                                          | TypeScript |         29 |          0 |          5 |         34 |
+| c:\projects\ShopAppBeta\src\app\class\template.ts                                         | TypeScript |         66 |          4 |         19 |         89 |
+| c:\projects\ShopAppBeta\src\app\home\bill.service.ts                                      | TypeScript |         24 |          1 |          6 |         31 |
+| c:\projects\ShopAppBeta\src\app\home\bill\bill.component.css                              | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\home\bill\bill.component.html                             | HTML       |         30 |          0 |          0 |         30 |
+| c:\projects\ShopAppBeta\src\app\home\bill\bill.component.spec.ts                          | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\home\bill\bill.component.ts                               | TypeScript |         11 |          0 |          5 |         16 |
+| c:\projects\ShopAppBeta\src\app\home\customer\customer.component.css                      | CSS        |          4 |          0 |          0 |          4 |
+| c:\projects\ShopAppBeta\src\app\home\customer\customer.component.html                     | HTML       |         38 |          0 |          1 |         39 |
+| c:\projects\ShopAppBeta\src\app\home\customer\customer.component.spec.ts                  | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\home\customer\customer.component.ts                       | TypeScript |         49 |          2 |          8 |         59 |
+| c:\projects\ShopAppBeta\src\app\home\home-routing.module.ts                               | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\home\home.component.css                                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\home\home.component.html                                  | HTML       |         70 |          7 |          5 |         82 |
+| c:\projects\ShopAppBeta\src\app\home\home.component.spec.ts                               | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\home\home.component.ts                                    | TypeScript |         44 |          2 |          8 |         54 |
+| c:\projects\ShopAppBeta\src\app\home\home.module.ts                                       | TypeScript |         22 |          0 |          4 |         26 |
+| c:\projects\ShopAppBeta\src\app\home\template-list\template-list.component.css            | CSS        |          8 |          0 |          1 |          9 |
+| c:\projects\ShopAppBeta\src\app\home\template-list\template-list.component.html           | HTML       |         12 |          0 |          0 |         12 |
+| c:\projects\ShopAppBeta\src\app\home\template-list\template-list.component.spec.ts        | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\home\template-list\template-list.component.ts             | TypeScript |         29 |          0 |          6 |         35 |
+| c:\projects\ShopAppBeta\src\app\interface\customer.ts                                     | TypeScript |          5 |          0 |          1 |          6 |
+| c:\projects\ShopAppBeta\src\app\interface\invoice-data.ts                                 | TypeScript |         16 |          0 |          3 |         19 |
+| c:\projects\ShopAppBeta\src\app\interface\ledger.ts                                       | TypeScript |          6 |          0 |          1 |          7 |
+| c:\projects\ShopAppBeta\src\app\interface\message.ts                                      | TypeScript |          7 |          0 |          1 |          8 |
+| c:\projects\ShopAppBeta\src\app\interface\payment-method.enum.ts                          | TypeScript |          6 |          0 |          1 |          7 |
+| c:\projects\ShopAppBeta\src\app\interface\product-usage.ts                                | TypeScript |          9 |          0 |          1 |         10 |
+| c:\projects\ShopAppBeta\src\app\interface\product.ts                                      | TypeScript |          5 |          0 |          1 |          6 |
+| c:\projects\ShopAppBeta\src\app\interface\raw-material.ts                                 | TypeScript |          5 |          0 |          1 |          6 |
+| c:\projects\ShopAppBeta\src\app\interface\sql-request.ts                                  | TypeScript |          9 |          0 |          1 |         10 |
+| c:\projects\ShopAppBeta\src\app\interface\sql-response.ts                                 | TypeScript |          6 |          0 |          1 |          7 |
+| c:\projects\ShopAppBeta\src\app\interface\transaction.ts                                  | TypeScript |          9 |          0 |          1 |         10 |
+| c:\projects\ShopAppBeta\src\app\interface\user.ts                                         | TypeScript |          6 |          0 |          1 |          7 |
+| c:\projects\ShopAppBeta\src\app\interface\voucher.ts                                      | TypeScript |         13 |          0 |          1 |         14 |
+| c:\projects\ShopAppBeta\src\app\login\login-routing.module.ts                             | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\login\login.component.css                                 | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\login\login.component.html                                | HTML       |         47 |          0 |          5 |         52 |
+| c:\projects\ShopAppBeta\src\app\login\login.component.spec.ts                             | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\login\login.component.ts                                  | TypeScript |         40 |          2 |         10 |         52 |
+| c:\projects\ShopAppBeta\src\app\login\login.module.ts                                     | TypeScript |         14 |          0 |          4 |         18 |
+| c:\projects\ShopAppBeta\src\app\nav-bar\nav-bar.component.css                             | CSS        |         27 |          1 |          4 |         32 |
+| c:\projects\ShopAppBeta\src\app\nav-bar\nav-bar.component.html                            | HTML       |         45 |          0 |          2 |         47 |
+| c:\projects\ShopAppBeta\src\app\nav-bar\nav-bar.component.spec.ts                         | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\nav-bar\nav-bar.component.ts                              | TypeScript |         24 |          0 |          8 |         32 |
+| c:\projects\ShopAppBeta\src\app\notification\notification.component.css                   | CSS        |          0 |          0 |          1 |          1 |
+| c:\projects\ShopAppBeta\src\app\notification\notification.component.html                  | HTML       |         31 |          0 |          2 |         33 |
+| c:\projects\ShopAppBeta\src\app\notification\notification.component.spec.ts               | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\notification\notification.component.ts                    | TypeScript |         29 |          0 |          6 |         35 |
+| c:\projects\ShopAppBeta\src\app\services\auth.service.spec.ts                             | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\services\auth.service.ts                                  | TypeScript |         72 |         12 |         12 |         96 |
+| c:\projects\ShopAppBeta\src\app\services\collection.service.ts                            | TypeScript |         19 |          0 |          4 |         23 |
+| c:\projects\ShopAppBeta\src\app\services\ledger.service.spec.ts                           | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\services\ledger.service.ts                                | TypeScript |         39 |          0 |          7 |         46 |
+| c:\projects\ShopAppBeta\src\app\services\notification.service.spec.ts                     | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\services\notification.service.ts                          | TypeScript |         14 |          0 |          5 |         19 |
+| c:\projects\ShopAppBeta\src\app\services\sql.service.spec.ts                              | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\services\sql.service.ts                                   | TypeScript |         35 |          7 |          6 |         48 |
+| c:\projects\ShopAppBeta\src\app\sharing\base-form\base-form.component.ts                  | TypeScript |         76 |          3 |         10 |         89 |
+| c:\projects\ShopAppBeta\src\app\sharing\paginated-table\paginated-table.component.css     | CSS        |          6 |          0 |          1 |          7 |
+| c:\projects\ShopAppBeta\src\app\sharing\paginated-table\paginated-table.component.html    | HTML       |        113 |          2 |          2 |        117 |
+| c:\projects\ShopAppBeta\src\app\sharing\paginated-table\paginated-table.component.spec.ts | TypeScript |         20 |          0 |          6 |         26 |
+| c:\projects\ShopAppBeta\src\app\sharing\paginated-table\paginated-table.component.ts      | TypeScript |        122 |         14 |         30 |        166 |
+| c:\projects\ShopAppBeta\src\app\sharing\search.pipe.ts                                    | TypeScript |         15 |          0 |          4 |         19 |
+| c:\projects\ShopAppBeta\src\app\sharing\sharing.module.ts                                 | TypeScript |         27 |          0 |          4 |         31 |
+| c:\projects\ShopAppBeta\src\app\sharing\title-case.pipe.spec.ts                           | TypeScript |          7 |          0 |          2 |          9 |
+| c:\projects\ShopAppBeta\src\app\sharing\title-case.pipe.ts                                | TypeScript |         14 |          0 |          4 |         18 |
+| c:\projects\ShopAppBeta\src\app\sharing\under-score-to-space.pipe.spec.ts                 | TypeScript |          7 |          0 |          2 |          9 |
+| c:\projects\ShopAppBeta\src\app\sharing\under-score-to-space.pipe.ts                      | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\app\voucher-form\voucher-form.component.css                   | CSS        |          3 |          0 |          0 |          3 |
+| c:\projects\ShopAppBeta\src\app\voucher-form\voucher-form.component.html                  | HTML       |         48 |          0 |          1 |         49 |
+| c:\projects\ShopAppBeta\src\app\voucher-form\voucher-form.component.ts                    | TypeScript |        156 |          3 |         21 |        180 |
+| c:\projects\ShopAppBeta\src\bootstrap.min.css                                             | CSS        |          2 |          5 |          0 |          7 |
+| c:\projects\ShopAppBeta\src\environments\environment.prod.ts                              | TypeScript |          3 |          0 |          1 |          4 |
+| c:\projects\ShopAppBeta\src\environments\environment.ts                                   | TypeScript |          3 |         11 |          3 |         17 |
+| c:\projects\ShopAppBeta\src\index.html                                                    | HTML       |         13 |          0 |          1 |         14 |
+| c:\projects\ShopAppBeta\src\main.ts                                                       | TypeScript |          9 |          0 |          4 |         13 |
+| c:\projects\ShopAppBeta\src\polyfills.ts                                                  | TypeScript |          1 |         55 |          8 |         64 |
+| c:\projects\ShopAppBeta\src\styles.css                                                    | CSS        |         49 |          1 |         12 |         62 |
+| c:\projects\ShopAppBeta\src\test.ts                                                       | TypeScript |         13 |          4 |          4 |         21 |
+| Total                                                                                     |            |      2,884 |        162 |        525 |      3,571 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

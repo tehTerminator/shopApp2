@@ -1,0 +1,32 @@
+.dropdown > .menu {
+    display: block !important;
+}
+
+.dropdown.item:hover > .menu {
+    visibility: visible;
+    transition-delay: all .3s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.dropdown.item > .menu{
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.dropdown > .menu > .item:hover{
+    background: rgba(248,80,50,1);
+    background: -moz-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(246,41,12,1) 42%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,1)), color-stop(0%, rgba(241,111,92,1)), color-stop(42%, rgba(246,41,12,1)), color-stop(86%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
+    background: -webkit-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(246,41,12,1) 42%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
+    background: -o-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(246,41,12,1) 42%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
+    background: -ms-linear-gradient(top, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(246,41,12,1) 42%, rgba(240,47,23,1) 86%, rgba(231,56,39,1) 100%);
+    color: white;
+    /* text-shadow: -1px 3px 4px #000000; */
+}
+
+.nav-item {
+    margin-right: 10px;
+}

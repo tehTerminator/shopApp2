@@ -1,0 +1,29 @@
+<div class="ui form segment">
+    <div class="field">
+        <label for="tableName">Table</label>
+        <select name="tableName" class="ui fluid dropdown" [(ngModel)]="tableName">
+            <option value="products">Products</option>
+            <option value="ledger">Ledgers</option>
+            <option value="category">Categories</option>
+        </select>
+    </div>
+    <div class="field">
+        <label for="title">Search Title</label>
+        <input type="text" name="title" [(ngModel)]="searchText">
+    </div>
+    <button class="ui labeled icon fluid blue button" (click)="onSubmit()">
+        Search
+        <i class="search icon"></i>
+    </button>
+
+    <hr>
+
+    <h3 class="ui header">Results</h3>
+    <div class="ui divided list">
+        <div *ngFor="let item of listData" class="item">
+            <div class="ui circular red label">{{ item.id }}</div>
+            <strong>{{ item.title | titlecase }}</strong>
+        </div>
+    </div>
+
+</div>
