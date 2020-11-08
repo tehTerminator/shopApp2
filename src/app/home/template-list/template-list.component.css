@@ -1,9 +1,0 @@
-.selection.list > .item {
-    color: black !important;
-}
-
-.selection.list > .item:hover {
-    color: white !important;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(44,44,116,1) 35%, rgba(0,212,255,1) 100%);
-}

@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ShopAppBeta';
-
-  panelVisible = false;
-  sidebarVisible = false;
-
-  onToggle = ($event: boolean) => this.panelVisible = $event;
-  onSidebarToggle = () => this.sidebarVisible = !this.sidebarVisible;
-
-  getWidth() {
-    const width = this.panelVisible ? 'ten wide column' : 'thirteen wide column';
-    return width;
-  }
 }
