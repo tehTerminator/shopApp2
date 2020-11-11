@@ -2,11 +2,13 @@
     Sign In
 </h2>
 <main class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <section class="d-block">
         <mat-form-field class="w-100 d-block">
             <mat-label>Email</mat-label>
             <input 
                 matInput 
+                formControlName="email"
                 type="email" 
                 name="email" 
                 required />
@@ -16,6 +18,7 @@
             <mat-label>Password</mat-label>
             <input 
                 matInput 
+                formControlName="password"
                 type="password" 
                 name="password" 
                 required />
@@ -38,4 +41,6 @@
             Reset
         </button>
     </section>
+    </form>
 </main>
+
