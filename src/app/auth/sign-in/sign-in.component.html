@@ -1,1 +1,41 @@
-<p>sign-in works!</p>
+<h2 class="card-header">
+    Sign In
+</h2>
+<main class="card-body">
+    <section class="d-block">
+        <mat-form-field class="w-100 d-block">
+            <mat-label>Email</mat-label>
+            <input 
+                matInput 
+                type="email" 
+                name="email" 
+                required />
+        </mat-form-field>
+
+        <mat-form-field class="w-100 d-block mt-3">
+            <mat-label>Password</mat-label>
+            <input 
+                matInput 
+                type="password" 
+                name="password" 
+                required />
+        </mat-form-field>
+    </section>
+
+    <section class="d-block mt-3">
+        <button 
+            class="btn" 
+            type="submit" 
+            mat-raised-button 
+            color="primary"> 
+            Login
+        </button>
+        <button 
+            class="btn" 
+            type="reset" 
+            mat-raised-button 
+            color="danger">
+            Reset
+        </button>
+    </section>
+</main>
