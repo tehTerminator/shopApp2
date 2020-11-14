@@ -19,17 +19,18 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
           email: ['', [
-              Validators.required, Validators.email
+              Validators.required, 
+              Validators.email
           ]],
           password: ['', [
               Validators.required, 
               Validators.minLength(6)
-          ]
+          ]]
       });
   }
 
   onSubmit() {
-      if (this.loginform.invalid) {
+      if (this.loginForm.invalid) {
           return;
       }
 

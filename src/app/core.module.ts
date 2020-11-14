@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
         MatButtonModule,
     ],
     exports: [
+        ReactiveFormsModule,
         MatInputModule,
         MatButtonModule
     ]
