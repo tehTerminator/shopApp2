@@ -8,7 +8,7 @@ export class User{
 
     get token(): string {
         const currentTime = (new Date()).getTime();
-        if(expiresIn.getTime() < currentTime) {
+        if(this.expiresIn.getTime() < currentTime) {
             return this.theToken;
         }
         return null;

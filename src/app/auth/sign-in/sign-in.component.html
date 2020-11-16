@@ -5,51 +5,25 @@
     <main class="card-body">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <section class="d-block">
-                <mat-form-field 
-                     appearance="fill" 
-                     class="w-100 d-block">
+                <mat-form-field appearance="fill" class="w-100 d-block">
                     <mat-label>Email</mat-label>
-                    <input 
-                     matInput 
-                     formControlName="email"
-                     type="email" 
-                     name="email" 
-                     required />
+                    <input matInput formControlName="email" type="email" name="email" required />
                 </mat-form-field>
 
-                <mat-form-field 
-                     appearance="fill"
-                     class="w-100 d-block mt-3">
+                <mat-form-field appearance="fill" class="w-100 d-block mt-3">
                     <mat-label>Password</mat-label>
-                    <input 
-                     matInput 
-                     formControlName="password"
-                     type="password" 
-                     name="password" 
-                     required />
+                    <input matInput formControlName="password" type="password" name="password" required />
                 </mat-form-field>
             </section>
 
             <section class="d-block mt-3">
-                <button 
-                     class="btn mr-3" 
-                     type="submit" 
-                     mat-raised-button 
-                     color="primary"> 
+                <button class="btn mr-3" type="submit" mat-raised-button color="primary"> 
                     Login
                 </button>
-                <button 
-                     class="btn" 
-                     type="reset" 
-                     mat-raised-button 
-                     color="warn">
+                <button class="btn" type="reset" mat-raised-button color="warn">
                     Reset
                 </button>
             </section>
         </form>
-        <hr />
-        <section>
-            <a routerLink="sign-up">Create New Account</a>
-        </section>
     </main>
 </div>

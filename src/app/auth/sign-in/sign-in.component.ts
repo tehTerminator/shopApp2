@@ -5,6 +5,7 @@ import {
     FormControl, 
     Validators 
 } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,7 @@ import {
 export class SignInComponent implements OnInit {
     loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
@@ -35,6 +36,7 @@ export class SignInComponent implements OnInit {
       }
 
       console.log(this.loginForm.value);
+      this.authService.signIn(this.email.value, this.password.value);
   }
 
   get email(): FormControl {

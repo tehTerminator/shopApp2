@@ -24,7 +24,6 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@popperjs/core": "^2.0.5",
     "bootstrap-css-only": "^4.4.1",
-    "firebase": "^8.0.1",
     "fomantic-ui-css": "^2.8.3",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
