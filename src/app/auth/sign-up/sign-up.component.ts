@@ -5,6 +5,8 @@ import {
     FormControl,
     Validators
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-sign-up',
@@ -14,7 +16,10 @@ import {
 export class SignUpComponent implements OnInit {
     signUpForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(
+        private router: Router,
+        private formBuilder: FormBuilder,
+        private authService: AuthService) { }
 
     ngOnInit(): void {
         this.signUpForm = this.formBuilder.group({
@@ -22,10 +27,7 @@ export class SignUpComponent implements OnInit {
                 Validators.required,
                 Validators.minLength(3)
             ]],
-            email: [null, [
-                Validators.required,
-                Validators.email
-            ]],
+            username: [null, Validators.required],
             password: [null, [
                 Validators.required,
                 Validators.minLength(6)
@@ -38,15 +40,19 @@ export class SignUpComponent implements OnInit {
             return;
         }
 
-        console.log(this.signUpForm.value);
+        this.authService.signUp(
+            this.displayName.value,
+            this.username.value,
+            this.password.value)
+        .subscribe(() => this.router.navigate(['/auth', 'sign-in']));
     }
 
     get displayName(): FormControl {
         return this.signUpForm.get('displayName') as FormControl;
     }
 
-    get email(): FormControl {
-        return this.signUpForm.get('email') as FormControl;
+    get username(): FormControl {
+        return this.signUpForm.get('username') as FormControl;
     }
 
     get password(): FormControl {
