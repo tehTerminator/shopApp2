@@ -6,8 +6,8 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <section class="d-block">
                 <mat-form-field appearance="fill" class="w-100 d-block">
-                    <mat-label>Email</mat-label>
-                    <input matInput formControlName="email" type="email" name="email" required />
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" type="text" name="username" required />
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="w-100 d-block mt-3">
@@ -25,5 +25,9 @@
                 </button>
             </section>
         </form>
+        <hr>
+        <section class="text-center">
+            <a routerLink="../sign-up">Create New Account</a>
+        </section>
     </main>
 </div>

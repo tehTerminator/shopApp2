@@ -19,10 +19,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
-          email: ['', [
-              Validators.required, 
-              Validators.email
-          ]],
+          username: ['', Validators.required],
           password: ['', [
               Validators.required, 
               Validators.minLength(6)
@@ -35,12 +32,19 @@ export class SignInComponent implements OnInit {
           return;
       }
 
-      console.log(this.loginForm.value);
-      this.authService.signIn(this.email.value, this.password.value);
+      this.authService.signIn(this.username.value, this.password.value)
+      .subscribe((response) => {
+          console.log('onSubmit() [subscription]')
+          console.log(response);
+      },
+      (error) => {
+          console.log('onSubmit() [error]');
+          console.log(error);
+      });
   }
 
-  get email(): FormControl {
-      return this.loginForm.get('email') as FormControl;
+  get username(): FormControl {
+      return this.loginForm.get('username') as FormControl;
   }
 
   get password(): FormControl {
