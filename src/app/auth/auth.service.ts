@@ -1,9 +1,8 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
-import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,10 +11,16 @@ import { Router } from '@angular/router';
 export class AuthService implements OnDestroy {
   user: BehaviorSubject<User> = new BehaviorSubject(null);
   private timeout = null;
-  constructor(private http: HttpClient, private router: Router) { }
+
+  constructor(private http: HttpClient, private router: Router) {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData !== undefined) {
+      this.handleAuthentication(userData);
+    }
+  }
 
   signIn(username: string, password: string) {
-    return this.http.post(signInUrl, {username, password})
+    return this.http.post('/auth/login', {username, password})
     .pipe(
       tap((response: ServerResponse) => {
         this.handleAuthentication(response.userData);
@@ -27,9 +32,16 @@ export class AuthService implements OnDestroy {
   }
 
   signUp(displayName: string, username: string, password: string) {
-    return this.http.post(signUpUrl, {
+    return this.http.post('/auth/sign-up', {
       displayName, username, password
     })
+  }
+
+  signOut() {
+    this.user.next(null);
+    clearTimeout(this.timeout);
+    localStorage.removeItem('userData');
+    this.router.navigate(['/auth', 'sign-in']);
   }
 
   private handleAuthentication(userData: UserData) {
@@ -53,12 +65,6 @@ export class AuthService implements OnDestroy {
     this.timeout = setTimeout(() => this.signOut(), expirationTime - currentTime );
   }
 
-  signOut() {
-    this.user.next(null);
-    localStorage.removeItem('userData');
-    this.router.navigate(['/auth', 'sign-in']);
-  }
-
   ngOnDestroy() {
     clearTimeout(this.timeout);
   }
@@ -80,6 +86,3 @@ export interface ServerResponse {
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
-
-const signInUrl = `${environment.baseUrl}/auth/login`;
-const signUpUrl = `${environment.baseUrl}/auth/sign-up`;
