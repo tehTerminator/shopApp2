@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService implements OnDestroy {
   user: BehaviorSubject<User> = new BehaviorSubject(null);
+  private _authenticated = false;
   private timeout = null;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -27,6 +28,7 @@ export class AuthService implements OnDestroy {
       }),
       map((response: ServerResponse) => response.userData),
       catchError(error => {
+        console.log(error);
         throw error.error.message;
       })
     );
@@ -40,6 +42,7 @@ export class AuthService implements OnDestroy {
 
   signOut() {
     this.user.next(null);
+    this._authenticated = false;
     clearTimeout(this.timeout);
     localStorage.removeItem('userData');
     this.router.navigate(['/auth', 'sign-in']);
@@ -62,12 +65,17 @@ export class AuthService implements OnDestroy {
       userData.token, 
       expirationTime);
     this.user.next(user);
+    this._authenticated = true;
 
     this.timeout = setTimeout(() => this.signOut(), expirationTime - currentTime );
   }
 
   ngOnDestroy() {
     clearTimeout(this.timeout);
+  }
+
+  get authenticated(): boolean {
+    return this._authenticated;
   }
 }
 

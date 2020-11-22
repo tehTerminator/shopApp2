@@ -2,7 +2,7 @@
     <h2 class="card-header">
         Sign In
     </h2>
-    <main class="card-body">
+    <main class="card-body" [ngClass]="loading ? 'loading': ''">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <section class="d-block">
                 <mat-form-field appearance="fill" class="w-100 d-block">
@@ -17,7 +17,7 @@
             </section>
 
             <section class="d-block mt-3">
-                <button class="btn mr-3" type="submit" mat-raised-button color="primary"> 
+                <button class="btn mr-3" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid"> 
                     Login
                 </button>
                 <button class="btn" type="reset" mat-raised-button color="warn">

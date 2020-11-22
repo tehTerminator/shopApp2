@@ -18,13 +18,16 @@ export class AuthInterceptor implements HttpInterceptor {
         
         this.authService.user.pipe(take(1))
         .subscribe((user: User) => {
-            token = user.token;
+            token = !!user ? user.token : null;
         });
 
         const newRequest = req.clone({
             url: environment.baseUrl + req.url,
-            setHeaders: {'Authorization': token}
         });
+
+        if (!!token) {
+            newRequest.headers.set('Authorization', token);
+        }
 
         return next.handle(newRequest);
     }
