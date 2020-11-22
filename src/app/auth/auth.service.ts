@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class AuthService implements OnDestroy {
 
   constructor(private http: HttpClient, private router: Router) {
     const userData = JSON.parse(localStorage.getItem('userData'));
-    if (userData !== undefined) {
+    if (userData !== null) {
       this.handleAuthentication(userData);
     }
   }
@@ -25,6 +25,7 @@ export class AuthService implements OnDestroy {
       tap((response: ServerResponse) => {
         this.handleAuthentication(response.userData);
       }),
+      map((response: ServerResponse) => response.userData),
       catchError(error => {
         throw error.error.message;
       })
@@ -70,7 +71,7 @@ export class AuthService implements OnDestroy {
   }
 }
 
-interface UserData {
+export interface UserData {
   displaName: string;
   id: number;
   token: string;

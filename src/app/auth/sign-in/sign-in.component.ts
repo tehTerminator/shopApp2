@@ -5,7 +5,9 @@ import {
     FormControl, 
     Validators 
 } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService, UserData } from '../auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,7 +17,11 @@ import { AuthService } from '../auth.service';
 export class SignInComponent implements OnInit {
     loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(
+      private router: Router,
+      private snackBar: MatSnackBar,
+      private formBuilder: FormBuilder, 
+      private authService: AuthService) { }
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
@@ -33,9 +39,8 @@ export class SignInComponent implements OnInit {
       }
 
       this.authService.signIn(this.username.value, this.password.value)
-      .subscribe((response) => {
-          console.log('onSubmit() [subscription]')
-          console.log(response);
+      .subscribe((userData: UserData) => {
+          console.log(userData);
       },
       (error) => {
           console.log('onSubmit() [error]');
