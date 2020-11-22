@@ -10,6 +10,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CoreModule } from './shared/core.module';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
