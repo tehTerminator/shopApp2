@@ -8,10 +8,13 @@
     <div class="navbar-collapse" [ngClass]="navBarCollapsed ? 'collapse': ''">
         <div class="navbar-nav mr-auto text-light text-center">
             <div class="nav-item">
-                <a routerLink="home" class="nav-link">Home</a>
+                <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" (click)="openCalculator()">Calculator</a>
+            </div>
+            <div class="nav-item">
+                <a routerLink="/admin" routerLinkActive="active" class="nav-link">Admin</a>
             </div>
         </div>
         <div class="navbar-nav ml-auto" [hidden]="!isAuthenticated">

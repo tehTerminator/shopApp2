@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-sm table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th>Id</th>
+                <th>Title</th>
+                <th>Kind</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of collection | async">
+                <td>{{ item.id }}</td>
+                <td>{{ item.displayName }}</td>
+                <td class="text-center">{{ item.kind }}</td>
+            </tr>
+        </tbody>
+        <tfoot class="thead-dark">
+            <tr class="text-center">
+                <th>Id</th>
+                <th>Title</th>
+                <th>Kind</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

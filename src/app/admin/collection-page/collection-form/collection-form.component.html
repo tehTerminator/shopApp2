@@ -1,0 +1,38 @@
+<div class="card mat-elevation-z8" [ngClass]="loading ? 'loading': ''">
+    <div class="card-header">
+        {{ title }}
+    </div>
+    <div class="card-body">
+        <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+            <section>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Id</mat-label>
+                    <input type="number" matInput formControlName="id" (blur)="onIdChange()">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="displayName" required>
+                    <mat-error *ngIf="displayName.hasError('required')">
+                        Display Name is Required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Kind</mat-label>
+                    <mat-select formControlName="kind">
+                        <mat-option *ngFor="let kind of kindOfItems" [value]="kind" required>
+                            {{ kind }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="kind.hasError('required')">
+                        Kind is required.
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section class="mt-3">
+                <button mat-raised-button color="primary" class="btn mr-3" type="submit" [disabled]="collectionForm.invalid">Submit</button>
+                <button mat-raised-button color="warn" class="btn" type="reset">Reset Form</button>
+            </section>
+        </form>
+    </div>
+</div>
