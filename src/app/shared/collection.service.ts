@@ -59,6 +59,18 @@ export class CollectionService implements OnDestroy {
     return Object.assign({}, item);
   }
 
+  deleteItem(id: number) {
+    return this.http.delete(`/api/delete/collection/${id}`)
+    .pipe(tap((response: any) => {
+      const newCollection = this._collection.value;
+      newCollection.splice(newCollection.findIndex(x=>x.id === id), 1);
+      this._collection.next(newCollection);
+    }),
+    catchError(error => {
+      throw error.error.message;
+    }));
+  }
+
   get collection() {
     return this._collection;
   }
@@ -83,7 +95,6 @@ export class CollectionService implements OnDestroy {
 
   OnInit(): void {
     this._timer = setInterval(() => this.refresh(), 1000 * 600);
-    console.log('Collection OnInit() Called');
     this.refresh();
   }
 
