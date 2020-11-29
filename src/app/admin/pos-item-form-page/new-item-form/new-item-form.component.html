@@ -1,0 +1,66 @@
+<form [formGroup]="posForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <mat-form-field class="w-100 mt-2">
+                        <mat-label>Title</mat-label>
+                        <input type="text" matInput formControlName="displayName">
+                        <mat-error *ngIf="displayName.hasError('required')">
+                            Please Provide a Display Name.
+                        </mat-error>
+                        <mat-error *ngIf="displayName.hasError('nameNotAvailable')">
+                            Display Name Already Exists.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100 mt-2">
+                        <mat-label>Rate</mat-label>
+                        <input type="number" matInput formControlName="rate">
+                        <mat-error *ngIf="rate.hasError('required')">
+                            Please Provide Rate of POS Item.
+                        </mat-error>
+                        <mat-error *ngIf="rate.hasError('min')">
+                            Rate Must Be Greater than 0.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <button mat-stroked-button color="primary" class="w-100 mt-3" type="button" (click)="createNewTemplate()">Add Template Item</button>
+                </div>
+            </div>
+            <hr>
+            <button mat-raised-button color="primary" type="submit">Save</button>
+            <button mat-raised-button color="warn" class="ml-3" type="reset">Reset</button>
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <div class="row" formArrayName="templates">
+                <div class="col-lg-4 col-md-6 mb-3" *ngFor="let control of templates.controls;let i = index" [formGroupName]="i">
+                    <div class="card">
+                        <div class="card-body">
+                            <mat-form-field class="w-100">
+                                <mat-label>Collection Id</mat-label>
+                                <mat-select formControlName="collection_id">
+                                    <mat-option *ngFor="let item of collection | async" [value]="item.id">
+                                        {{ item.displayName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="w-100 mt-2">
+                                <mat-label>Quantity</mat-label>
+                                <input type="number" matInput formControlName="quantity">
+                            </mat-form-field>
+
+                            <mat-form-field class="w-100 mt-2">
+                                <mat-label>Rate</mat-label>
+                                <input type="number" matInput formControlName="rate">
+                            </mat-form-field>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <button mat-stroked-button color="warn" class="w-100" (click)="templates.removeAt(i)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
