@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
         MatButtonModule,
         MatSelectModule,
         MatSnackBarModule,
-        MatTableModule
+        MatTableModule,
+        MatIconModule
     ],
     exports: [
         ReactiveFormsModule,
@@ -22,7 +24,8 @@ import { MatTableModule } from '@angular/material/table';
         MatButtonModule,
         MatSelectModule,
         MatSnackBarModule,
-        MatTableModule
+        MatTableModule,
+        MatIconModule
     ],
 })
 export class CoreModule{}
