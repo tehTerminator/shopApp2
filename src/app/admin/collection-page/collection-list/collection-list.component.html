@@ -1,4 +1,4 @@
-<div class="container">
+<div class="scroll-box" *ngIf="collectionLength > 0; else noContent;">
     <table class="table table-sm table-bordered table-striped">
         <thead class="thead-dark">
             <tr class="text-center">
@@ -10,7 +10,14 @@
         <tbody>
             <tr *ngFor="let item of collection | async">
                 <td>{{ item.id }}</td>
-                <td>{{ item.displayName }}</td>
+                <td class="d-flex justify-content-between align-middle">
+                    {{ item.displayName }}
+                    <a class="cursor-pointer" (click)="deleteItem(item.id)">
+                        <mat-icon>
+                            delete
+                        </mat-icon>
+                    </a>
+                </td>
                 <td class="text-center">{{ item.kind }}</td>
             </tr>
         </tbody>
@@ -23,3 +30,11 @@
         </tfoot>
     </table>
 </div>
+
+<ng-template #noContent>
+    <div class="card">
+        <div class="card-body">
+            No Collection Created.
+        </div>
+    </div>
+</ng-template>

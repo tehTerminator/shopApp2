@@ -16,7 +16,18 @@ export class CollectionListComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  deleteItem(id: number) {
+    this.collectionService.deleteItem(id)
+    .subscribe((response) => {
+      console.log(response);
+    })
+  }
+
   get collection(): Observable<CollectionItem[]> {
     return this.collectionService.collection;
+  }
+
+  get collectionLength(): number {
+    return this.collectionService.collection.value.length;
   }
 }
