@@ -51,3 +51,7 @@ body {
     visibility: visible;
     z-index: 101;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
