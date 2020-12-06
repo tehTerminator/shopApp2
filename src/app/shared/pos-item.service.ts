@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PosItemService {
   private _posItems: BehaviorSubject<PosItem[]> = new BehaviorSubject([]);
+  private _indexOfEditedItem = -1;
+  private _indexOfEditedTemplate = -1;
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     this.fetchItems();
@@ -50,7 +52,8 @@ export class PosItemService {
     if (item.templates !== undefined) {
       return Object.assign({}, item);
     } else {
-      this.fetchTemplate(id).subscribe(() => this.getItemById(id));
+      this.fetchTemplate(id)
+      .subscribe(() => this.getItemById(id));
     }
   }
 
@@ -66,16 +69,89 @@ export class PosItemService {
   }
   
   updatePosItem(posItem: PosItem) {
-    return this.http.post('/api/update', posItem)
+    return this.http.post('/api/update/pos-item', posItem)
     .pipe(tap(() => {
       const newPosItems = this._posItems.value;
-      newPosItems.splice(newPosItems.findIndex(x=>x.id === posItem.id), 1, posItem);
+      newPosItems.splice(this._indexOfEditedItem, 1, posItem);
       this._posItems.next(newPosItems);
     }),
     catchError(error => {
       console.log(error);
       throw 'Unable to Update Pos Item';
     }));
+  }
+
+  updatePosItemTemplate(template: POSItemTemplate) {
+    return this.http.post('/api/update/pos-item-template', template)
+    .pipe(tap((posTemplate: POSItemTemplate) => {
+      const item = this.getItemByIndex(this.indexOfEditedItem);
+      item.templates.splice(this._indexOfEditedTemplate, 1, posTemplate);
+      const newPosItems = this._posItems.value;
+      newPosItems.splice(this._indexOfEditedItem, 1, item);
+      this._posItems.next(newPosItems);
+      this._indexOfEditedTemplate = -1;
+    }), catchError((error) => {
+      console.log(error);
+      throw 'Unable to Update POS Template';
+    }));
+  }
+
+  /**
+   * Returns PosItem using Index of Element
+   * @param index of Item from List
+   */
+  getItemByIndex(index: number) {
+    if( index < this._posItems.value.length){
+      return Object.assign({}, this._posItems.value[index]);
+    }
+    else {
+      throw 'Item Not Found Error';
+    }
+  }
+
+  get indexOfEditedItem() {
+    return this._indexOfEditedItem;
+  }
+
+  set indexOfEditedItem(index: number) {
+    if(index < this._posItems.value.length) {
+      this._indexOfEditedItem = index;
+    } else {
+      this._indexOfEditedItem = -1;
+    }
+  }
+
+  get indexOfEditedTemplate() {
+    return this._indexOfEditedTemplate;
+  }
+
+  set indexOfEditedTemplate(index: number) {
+    const editedItem = this.getItemByIndex(this.indexOfEditedItem);
+    if (index < editedItem.templates.length) {
+      this._indexOfEditedTemplate = index;
+    } else {
+      this._indexOfEditedTemplate = -1;
+    }
+  }
+
+  get editMode() {
+    return this._indexOfEditedItem >= 0;
+  }
+
+  get itemBeingEdited {
+    if (this.editMode) {
+      return Object.assign({}, this.getItemByIndex(this.indexOfEditedItem));
+    } else {
+      throw 'Please Enable Edit Mode First';
+    }
+  }
+
+  get templateBeinEdited {
+    if (this.editMode) {
+      return Object.assign({}, this.itemBeingEdited.templates[this.indexOfEditedTemplate]);
+    } else {
+      throw 'Please Select Template First';
+    }
   }
 }
 
