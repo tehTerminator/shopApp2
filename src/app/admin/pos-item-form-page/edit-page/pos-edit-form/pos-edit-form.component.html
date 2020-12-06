@@ -1,0 +1,25 @@
+<div class="card">
+    <!-- Display List Of Items -->
+    <div class="card-body" [hidden]="this.showForm">
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" *ngFor="let item of posItems | async;let i = index" (click)="selectItem(i)">
+                {{ item.displayName }}
+            </a>
+        </div>
+    </div>
+</div>
+<div class="card" [hidden]="!this.showForm">
+    <div class="card-body" [formGroup]="posForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="w-100 mb-3">
+            <mat-label>Display Name</mat-label>
+            <input #matInput name="displayName" formControlName="displayName">
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-3">
+            <mat-label>Rate</mat-label>
+            <input #matInput type="number" name="rate" formControlName="rate">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="btn" type="submit">Save</button>
+        <button mat-raised-button color="warn" class="btn ml-3" type="reset" (click)="onReset();">Reset</button>
+    </div>
+</div>
